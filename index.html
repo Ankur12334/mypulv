@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Forever Yours</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- LOADING SCREEN -->
+    <div id="loading-screen">
+        <div class="loader">
+            <div class="glowing-heart"></div>
+        </div>
+    </div>
+
+    <!-- FLOATING PARTICLES -->
+    <div id="particles"></div>
+
+    <!-- MUSIC -->
+    <audio id="bg-music" autoplay loop>
+        <source src="./Majboor - RaagWorld.mp3#t=63" type="audio/mpeg">
+    </audio>
+
+    <button id="music-btn">
+        🎵 Play Music
+    </button>
+
+    <!-- HERO SECTION -->
+    <section id="hero">
+
+        <!-- IMPORTANT -->
+        <!-- Upload hero-bg.JPG to GitHub repo -->
+
+        <div class="hero-bg"
+            style="background-image: url('./image2.JPG');">
+        </div>
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+
+            <h1 id="hero-title"></h1>
+
+            <p class="subtext fade-in-up delay-1">
+                Out of everything life gave me… you were my favorite surprise.
+            </p>
+
+            <a href="#gallery" class="glow-btn fade-in-up delay-2">
+                Open My Heart
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery">
+
+        <h2 class="section-title reveal">
+            Our Beautiful Moments
+        </h2>
+
+        <div class="gallery-grid">
+
+            <!-- IMAGE 1 -->
+            <div class="gallery-item reveal">
+
+                <img src="./image1.JPG" alt="Memory 1">
+
+                <div class="caption">
+                    The smile that fixed my worst days.
+                </div>
+
+            </div>
+
+            <!-- IMAGE 2 -->
+            <div class="gallery-item reveal delay-1">
+
+                <img src="./image2.JPG" alt="Memory 2">
+
+                <div class="caption">
+                    My peace in human form.
+                </div>
+
+            </div>
+
+            <!-- IMAGE 3 -->
+            <div class="gallery-item reveal delay-2">
+
+                <img src="./image3.JPG" alt="Memory 3">
+
+                <div class="caption">
+                    The moment life became beautiful.
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- LIGHTBOX -->
+    <div id="lightbox" class="lightbox">
+
+        <span class="close-lightbox">&times;</span>
+
+        <img class="lightbox-content" id="lightbox-img">
+
+        <div id="lightbox-caption"></div>
+
+    </div>
+
+    <!-- SPECIAL SECTION -->
+    <section id="special">
+
+        <h2 class="section-title reveal">
+            Why You're Special
+        </h2>
+
+        <div class="cards-container">
+
+            <div class="glass-card reveal">
+                <h3>Your Smile</h3>
+
+                <p>
+                    It brightens even the darkest of my days and brings me instant peace.
+                </p>
+            </div>
+
+            <div class="glass-card reveal delay-1">
+                <h3>Your Kindness</h3>
+
+                <p>
+                    The gentle way you treat the world inspires me to be a better person.
+                </p>
+            </div>
+
+            <div class="glass-card reveal delay-2">
+                <h3>Your Voice</h3>
+
+                <p>
+                    My favorite sound, a melody that feels like home.
+                </p>
+            </div>
+
+            <div class="glass-card reveal">
+                <h3>Your Eyes</h3>
+
+                <p>
+                    A universe I could get lost in forever.
+                </p>
+            </div>
+
+            <div class="glass-card reveal delay-1">
+                <h3>The Way You Care</h3>
+
+                <p>
+                    Your pure heart makes me feel unconditionally loved.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- QUOTE SECTION -->
+    <section id="quote">
+
+        <!-- Upload quote-bg.JPG -->
+
+        <div class="quote-bg"
+            style="background-image: url('./quote-bg.JPG');">
+        </div>
+
+        <div class="quote-overlay"></div>
+
+        <div class="quote-content reveal">
+
+            <h2>
+                “I searched for happiness everywhere… then life introduced me to you.”
+            </h2>
+
+            <div class="memory-counter reveal delay-1">
+
+                <span class="infinity">∞</span>
+
+                Infinite reasons to love you.
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ENDING -->
+    <section id="ending">
+
+        <div class="ending-content reveal">
+
+            <h2>
+                And if I had to choose again… I would still choose you.
+            </h2>
+
+            <p class="signature reveal delay-1">
+                Forever Yours — Ankur
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- SCRIPT -->
+    <script>
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // Loading Screen
+            const loadingScreen = document.getElementById('loading-screen');
+
+            window.addEventListener('load', () => {
+
+                setTimeout(() => {
+
+                    loadingScreen.style.opacity = '0';
+
+                    setTimeout(() => {
+
+                        loadingScreen.style.display = 'none';
+
+                        startTypewriter();
+
+                    }, 1000);
+
+                }, 1000);
+
+            });
+
+            // Particles
+            const particlesContainer = document.getElementById('particles');
+
+            for (let i = 0; i < 30; i++) {
+
+                const particle = document.createElement('div');
+
+                particle.classList.add('particle');
+
+                const size = Math.random() * 5 + 3;
+
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+
+                particle.style.left = `${Math.random() * 100}vw`;
+
+                const duration = Math.random() * 15 + 10;
+
+                particle.style.animationDuration = `${duration}s`;
+
+                particle.style.animationDelay = `${Math.random() * 10}s`;
+
+                particlesContainer.appendChild(particle);
+
+            }
+
+            // MUSIC
+            const bgMusic = document.getElementById('bg-music');
+
+            const musicBtn = document.getElementById('music-btn');
+
+            let isPlaying = false;
+
+            bgMusic.volume = 0.4;
+            bgMusic.currentTime = 63; // 1 minute 3 seconds
+
+            // Attempt to autoplay immediately
+            bgMusic.play().then(() => {
+                isPlaying = true;
+                musicBtn.textContent = "⏸ Pause Music";
+            }).catch(() => {
+                // Autoplay prevented by browser, fallback to click
+                document.body.addEventListener(
+                    "click",
+                    () => {
+                        if (!isPlaying) {
+                            bgMusic.play().then(() => {
+                                isPlaying = true;
+                                musicBtn.textContent = "⏸ Pause Music";
+                            }).catch(() => { });
+                        }
+                    },
+                    { once: true }
+                );
+            });
+
+            musicBtn.addEventListener('click', () => {
+
+                if (isPlaying) {
+
+                    bgMusic.pause();
+
+                    musicBtn.textContent = '🎵 Play Music';
+
+                } else {
+
+                    bgMusic.play();
+
+                    musicBtn.textContent = '⏸ Pause Music';
+
+                }
+
+                isPlaying = !isPlaying;
+
+            });
+
+            // TYPEWRITER
+            const heroTitle = document.getElementById('hero-title');
+
+            const textToType =
+                "You are the most beautiful thing I have ever seen.";
+
+            let charIndex = 0;
+
+            function startTypewriter() {
+
+                if (charIndex < textToType.length) {
+
+                    heroTitle.textContent += textToType.charAt(charIndex);
+
+                    charIndex++;
+
+                    setTimeout(startTypewriter, 70);
+
+                }
+
+            }
+
+            // REVEAL
+            const revealElements =
+                document.querySelectorAll('.reveal');
+
+            const revealObserver =
+                new IntersectionObserver((entries) => {
+
+                    entries.forEach(entry => {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.classList.add('active');
+
+                        }
+
+                    });
+
+                }, {
+                    threshold: 0.15
+                });
+
+            revealElements.forEach(el =>
+                revealObserver.observe(el)
+            );
+
+            // LIGHTBOX
+            const lightbox =
+                document.getElementById('lightbox');
+
+            const lightboxImg =
+                document.getElementById('lightbox-img');
+
+            const lightboxCaption =
+                document.getElementById('lightbox-caption');
+
+            const closeBtn =
+                document.querySelector('.close-lightbox');
+
+            const galleryItems =
+                document.querySelectorAll('.gallery-item');
+
+            galleryItems.forEach(item => {
+
+                item.addEventListener('click', () => {
+
+                    const img = item.querySelector('img');
+
+                    const caption =
+                        item.querySelector('.caption');
+
+                    lightboxImg.src = img.src;
+
+                    lightboxCaption.textContent =
+                        caption.textContent;
+
+                    lightbox.classList.add('active');
+
+                    document.body.style.overflow = 'hidden';
+
+                });
+
+            });
+
+            function closeLightbox() {
+
+                lightbox.classList.remove('active');
+
+                document.body.style.overflow = 'auto';
+
+            }
+
+            closeBtn.addEventListener(
+                'click',
+                closeLightbox
+            );
+
+            lightbox.addEventListener('click', (e) => {
+
+                if (e.target === lightbox) {
+
+                    closeLightbox();
+
+                }
+
+            });
+
+        });
+
+    </script>
+
+</body>
+
+</html>
